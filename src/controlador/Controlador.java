@@ -51,6 +51,7 @@ public class Controlador implements ActionListener {
         btnmostrar,// botón mostrar de vista Mostrar  
         btnvolver, // botón volver de vista Mostar
         btnlimpiar,//botón limpiar de vista 
+        
                 
         // opciones barra menúmenú
         msissalir, // opción salir barra menú
@@ -294,6 +295,16 @@ public class Controlador implements ActionListener {
                     JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
 
                 } else {
+                    
+                    if (this.modeloDato.existeCodigo(verificacioncodigo)==true){
+                        JOptionPane.showMessageDialog(null, "El código ya existe, vuelva a intentarlo");
+                        
+                    } else {
+                    
+                    
+                    
+                    
+                    
                     //verificar rut no está en blanco
                     
                     if (this.vistaEmpleado.txtrut.getText().length()== 0){
@@ -351,14 +362,15 @@ public class Controlador implements ActionListener {
                                 eliminar();
 
                             } else {
-                                JOptionPane.showMessageDialog(null, "No se pudo agregar. El código ya Existe");
-                            }limpiartodo();
+                                JOptionPane.showMessageDialog(null, "No se pudo agregar porque el código ya existe,\nverifiqué el código ingresado");
+                            }
                             }
                             }
                             }
                         }
                     }
                     }
+                        }
                     }
                     }
                     }
@@ -457,14 +469,7 @@ public class Controlador implements ActionListener {
                 }
 
                 break;
-                /*
-            case cbodepartamento:
-                if (this.vistaEmpleado.cbodepartamento.getSelectedItem() == "Seleccione") {
-                    JOptionPane.showMessageDialog(null, "Seleccione una opción de Departamento");
-                }
-                
-                break;
-               */ 
+
         }
 
     }

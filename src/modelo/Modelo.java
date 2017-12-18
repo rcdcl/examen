@@ -203,8 +203,8 @@ public class Modelo extends Conexion {
     }
 
     //Modificar los datos de la BD
-    public boolean modificarDato(int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto) {
-        String query = "update empleados set rut= '" + rut + "', nombre= '" + nombre + "', apellido= '" + apellido + "', celular= '" + celular + "', email= '" + email + "', sueldo_bruto= '" + sueldo_bruto + "', est_civil= '" + est_civil + "', nom_depto= '" + nom_depto + "' where codigo ='" + codigo + "'";
+    public boolean modificarDato(int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto){
+    String query = "update empleados set rut= '" + rut + "', nombre= '" + nombre + "', apellido= '" + apellido + "', celular= '" + celular + "', email= '" + email + "', sueldo_bruto= '" + sueldo_bruto + "', est_civil= '" + est_civil + "', nom_depto= '" + nom_depto + "' where codigo ='" + codigo + "'";
 
         //se ejecuta update
         try {
@@ -219,6 +219,27 @@ public class Modelo extends Conexion {
         }
 
         return false;
+
+    }
+    
+    public boolean existeCodigo(int codigo) {
+            boolean regreso=false;
+
+try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from empleados where codigo ='" + codigo + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            int registros = res.getInt("total");
+            if (registros != 0 ){
+                regreso = true;
+                
+            } 
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return regreso;
 
     }
 

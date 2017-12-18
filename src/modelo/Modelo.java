@@ -160,8 +160,8 @@ public class Modelo extends Conexion {
     }
 
     //Modificar los datos de la BD
-    public boolean modificarDato(int codigo, String nombre, int id_categoria, int precio, String formato) {
-        String query = "update pelicula set nombre= '" + nombre + "', id_categoria= '" + id_categoria + "', precio= '" + precio + "', formato4k= '" + formato + "' where codigo ='" + codigo + "'";
+    public boolean modificarDato(int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto) {
+        String query = ;
 
         //se ejecuta update
         try {

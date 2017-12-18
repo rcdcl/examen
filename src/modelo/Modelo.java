@@ -178,6 +178,27 @@ public class Modelo extends Conexion {
         return false;
 
     }
+    
+    public boolean existeCodigo(int codigo) {
+            boolean regreso=false;
+
+try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from empleados where codigo ='" + codigo + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            int registros = res.getInt("total");
+            if (registros != 0 ){
+                regreso = true;
+                
+            } 
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return regreso;
+
+    }
 
     //Modificar los datos de la BD
 }

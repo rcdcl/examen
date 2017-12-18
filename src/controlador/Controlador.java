@@ -7,7 +7,10 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -71,6 +74,8 @@ public class Controlador implements ActionListener {
             this.vistaEmpleado.setVisible(true);//Hago que la vista sea visible
             this.vistaEmpleado.setLocationRelativeTo(null);
             this.vistaEmpleado.setTitle("Empleados");
+            this.vistaEmpleado.btneliminar.setEnabled(false);
+            this.vistaEmpleado.btnmodificar.setEnabled(false);
 
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             //SwingUtilities.updateComponentTreeUI(vistaEmpleado);
@@ -142,7 +147,15 @@ public class Controlador implements ActionListener {
         this.vistaEmpleado.txtcodigo.setText("");
         this.vistaEmpleado.txtcelular.setText("");
         this.vistaEmpleado.cbodepartamento.setSelectedIndex(0);
-
+        this.vistaEmpleado.txtrut.setText("");
+        this.vistaEmpleado.txtapellido.setText("");
+        this.vistaEmpleado.txtemail.setText("");
+        this.vistaEmpleado.txtsueldo.setText("");
+        this.vistaEmpleado.btneliminar.setEnabled(false);
+        this.vistaEmpleado.btnmodificar.setEnabled(false);
+        this.vistaEmpleado.txtcodigo.setEnabled(true);
+        this.vistaEmpleado.btnagregar.setEnabled(true);
+        eliminar();
 
     }
     
@@ -154,6 +167,8 @@ public class Controlador implements ActionListener {
 		return false;
         }
     }
+    
+    
     
 
     @Override
@@ -192,7 +207,7 @@ public class Controlador implements ActionListener {
                 
                 
                 
-                if (verificacioncodigo < 1 || verificacioncodigo > 101) {
+                if (verificacioncodigo < 1 || verificacioncodigo > 100) {
 
                     JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
 
@@ -312,16 +327,88 @@ public class Controlador implements ActionListener {
                 break;
 
             case btnsalir:
-                System.exit(0);
+                limpiartodo();
                 break;
                 
             case btnbuscar:
-                int codigoss = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
-                boolean bconfirmacion = false;
-                System.out.println("buscar");
-                this.vistaMostrar.tbEmpleado.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
-                if (bconfirmacion == true) {
-                    JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
+
+                if (esNumero(this.vistaEmpleado.txtcodigo.getText()) == false) {
+                    JOptionPane.showMessageDialog(null, "Ingrese datos numéricos en Codigo, vuelva a intentar");
+                    break;
+
+                } else {
+
+                    int verificacioncodigo = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
+
+                    if (verificacioncodigo < 1 || verificacioncodigo > 100) {
+
+                        JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
+
+                    } else {
+
+                        int codigoss = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
+                        boolean bconfirmacion = false;
+                        System.out.println("buscar");
+                        
+                        this.vistaMostrar.tbEmpleado.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
+                        
+                        this.vistaEmpleado.txtrut.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 1)));
+                        this.vistaEmpleado.txtnombre.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 2)));
+                        this.vistaEmpleado.txtapellido.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 3)));
+                        this.vistaEmpleado.txtcelular.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 4)));
+                        this.vistaEmpleado.txtemail.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 5)));
+                        this.vistaEmpleado.txtsueldo.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 6)));
+                        
+                        String ecivil = String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 7));
+                        switch (ecivil){
+                            case "C":
+                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(1);
+                            break;    
+                            case "S":
+                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(2);
+                                break;
+                            case "V":
+                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(3);    
+                        break;
+                    }
+
+                        
+                        
+                        String departamento = String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 8));
+                        switch (departamento){
+                            case "Administración":
+                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(1);
+                            break;    
+                            case "Bienestar":
+                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(2);
+                                break;
+                            case "Finanzas":
+                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(3);    
+                        break;
+                        
+                            case "Informática":
+                               this.vistaEmpleado.cbodepartamento.setSelectedIndex(4);   
+                                break;
+                                
+                            case "Redes":
+                                this.vistaEmpleado.cbodepartamento.setSelectedIndex(5);  
+                                break;
+                    }
+                        
+                                    this.vistaEmpleado.btneliminar.setEnabled(true);
+                                    this.vistaEmpleado.btnmodificar.setEnabled(true);
+                                    this.vistaEmpleado.txtcodigo.setEnabled(false);
+                                    this.vistaEmpleado.btnagregar.setEnabled(false);
+                        
+                        
+                        if (bconfirmacion == true) {
+                            
+                            
+                            JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
+                        } else {
+                           // JOptionPane.showMessageDialog(null, "El código de empleado no existe, vuelva a intentarlo");
+                        }
+                    }
                 }
                 
                 break;
@@ -347,7 +434,7 @@ public class Controlador implements ActionListener {
                 this.vistaMostrar.setTitle("Mostras Datos Empleados");
                 
                 break;
-                
+             /*   
             case cboestadocivil:
                 if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Seleccione") {
                     JOptionPane.showMessageDialog(null, "Seleccione una opción de Estado Civil");
@@ -370,7 +457,7 @@ public class Controlador implements ActionListener {
                 }
                 
                 break;
-
+                */
         }
 
     }

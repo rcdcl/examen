@@ -52,6 +52,8 @@ public class Controlador implements ActionListener {
         btnvolver, // botón volver de vista Mostar
         btnlimpiar,//botón limpiar de vista 
         
+
+        btnelims120, // boton eliminar sueldos de 120.000.-
                 
         // opciones barra menúmenú
         msissalir, // opción salir barra menú
@@ -109,6 +111,14 @@ public class Controlador implements ActionListener {
         this.vistaMostrar.btnvolver.setActionCommand("btnvolver");
         this.vistaMostrar.btnvolver.addActionListener(this);
        
+
+        // Escuchamos el boton elimiar sueldos 120000 de vista Mostrar
+        this.vistaMostrar.btnelims120.setActionCommand("btnelims120");
+        this.vistaMostrar.btnelims120.addActionListener(this);
+        
+        
+        
+        
         // Escuchamos el boton que limpia datos de pantalla
         //this.vistaEmpleado.btnlimpiar.setActionCommand("btnlimpiar");
         //this.vistaEmpleado.btnlimpiar.addActionListener(this);
@@ -469,6 +479,20 @@ public class Controlador implements ActionListener {
                     ecivil = "V";
                 }
 
+                break;
+                
+
+                
+            case btnelims120:
+                
+                boolean borrar= this.modeloDato.borrarSueldo120();
+                if (borrar == true){
+                    JOptionPane.showMessageDialog(null, "Se borraron los campos solicitados");
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No existen empleados con sueldos de 120.000");
+                }
+                
                 break;
 
         }

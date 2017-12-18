@@ -1,8 +1,10 @@
 package modelo;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import sql.Conexion;
@@ -240,6 +242,23 @@ try {
         }
 
         return regreso;
+        
+    }
+        
+    public boolean borrarSueldo120() {
+
+        
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("DELETE from empleados where sueldo_bruto = 120000;");//Stock Vaso Chico
+            int r = pstm.executeUpdate();
+            pstm.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            return false;
+        }
+
+        return true;
 
     }
 

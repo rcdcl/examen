@@ -16,7 +16,7 @@ public class Conexion {
             String driverUrl = "jdbc:mysql://localhost/examen";
             Class.forName(driverClassName);
             System.out.println("Proceso de conexión...");
-            connection = DriverManager.getConnection(driverUrl, "root", "1Gonzalito");
+            connection = DriverManager.getConnection(driverUrl, "root", "MySQL");
             System.out.println("Conexión Establecida");
 
         } catch (Exception e) {

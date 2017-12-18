@@ -25,7 +25,7 @@ public class Modelo extends Conexion {
         // Se arma la consulta para verificar si el código a ingresar ya existe
 
         //Se envía el dato
-        String query = "INSERT INTO empleados (codigo, rut, nombre, apellido, celular, email, sualdo_bruto, est_civil, nom_depto)"
+        String query = "INSERT INTO empleados (codigo, rut, nombre, apellido, celular, email, sueldo_bruto, est_civil, nom_depto)"
                 + "values ('" + codigo + "', '" + rut + "', '" + nombre + "', '" + apellido + "', '" + celular + "', '" + email + "', '" + sueldo_bruto + "', '" + est_civil + "', '" + nom_depto + "');";
 
         //se ejecuta la consulta
@@ -48,11 +48,11 @@ public class Modelo extends Conexion {
     public Object buscarDato(int codigo) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         //int registros = 0;
-        String[] columNames = {"Codigo", "rut", "Nombre", "Apellido", "Celular", "Email", "Sualdo Bruto", "Estado Civil", "Nombre Departamento"};
+        String[] columNames = {"Codigo", "rut", "Nombre", "Apellido", "Celular", "Email", "Sueldo Bruto", "Estado Civil", "Nombre Departamento"};
 
         Object[][] data = new String[1][9];
         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sualdo_bruto, est_civil, nom_depto FROM empleados where codigo ='" + codigo + "'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sueldo_bruto, est_civil, nom_depto FROM empleados where codigo ='" + codigo + "'");
             ResultSet res = pstm.executeQuery();
             System.out.println(codigo);
             String scodigo = String.valueOf(codigo);
@@ -120,7 +120,7 @@ public class Modelo extends Conexion {
     public DefaultTableModel mostrarDato() {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
-        String[] columNames = {"Codigo", "rut", "Nombre", "Apellido", "Celular", "Email", "Sualdo Bruto", "Estado Civil", "Nombre Departamento"};
+        String[] columNames = {"Codigo", "rut", "Nombre", "Apellido", "Celular", "Email", "Sueldo Bruto", "Estado Civil", "Nombre Departamento"};
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from empleados");
             ResultSet res = pstm.executeQuery();
@@ -132,7 +132,7 @@ public class Modelo extends Conexion {
         }
         Object[][] data = new String[registros][9];
         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sualdo_bruto, est_civil, nom_depto FROM empleados'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sueldo_bruto, est_civil, nom_depto FROM empleados'");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {

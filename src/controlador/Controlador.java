@@ -43,7 +43,7 @@ public class Controlador implements ActionListener {
         btnsalir,// botón salir vista
         btnbuscar,// botón buscar vista
         
-        
+        //
         
         cbodescripcion// combo descripcion vista
     }

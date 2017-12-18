@@ -18,7 +18,7 @@ public class Modelo extends Conexion {
     public Modelo(Empleado vistaEmpleado) {
         this.vistaEmpleado = vistaEmpleado;
     }
-
+//
     //Agregar datos a la BD
     public boolean agregarDatoProducto(int codigo, String nombre, int id_categoria, int precio, String formato) {
         // Se arma la consulta para verificar si el código a ingresar ya existe

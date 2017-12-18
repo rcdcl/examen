@@ -5,7 +5,7 @@ package controlador;
  * @author MBpro_Rafa
  */
 public class Inicio {
-
+//
     /**
      * @param args the command line arguments
      */

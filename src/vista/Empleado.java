@@ -56,7 +56,6 @@ public class Empleado extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         msissalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        mempagregar = new javax.swing.JMenuItem();
         mempmostrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,10 +149,8 @@ public class Empleado extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Empleados");
-
-        mempagregar.setText("Empleado");
-        jMenu2.add(mempagregar);
+        jMenu2.setText("Reporte");
+        jMenu2.setActionCommand("Reporte");
 
         mempmostrar.setText("Mostrar Registros de Empleados");
         jMenu2.add(mempmostrar);
@@ -244,7 +241,6 @@ public class Empleado extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JMenuItem mempagregar;
     public javax.swing.JMenuItem mempmostrar;
     public javax.swing.JMenuItem msissalir;
     public javax.swing.JTextField txtapellido;

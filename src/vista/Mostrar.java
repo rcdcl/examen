@@ -28,13 +28,13 @@ public class Mostrar extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        tbProducto = new javax.swing.JTable();
+        tbEmpleado = new javax.swing.JTable();
         btnmostrar = new javax.swing.JButton();
         btnvolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tbProducto.setModel(new javax.swing.table.DefaultTableModel(
+        tbEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -42,7 +42,7 @@ public class Mostrar extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(tbProducto);
+        jScrollPane2.setViewportView(tbEmpleado);
 
         btnmostrar.setText("Mostrar Todos los Empleado");
         btnmostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,8 +64,8 @@ public class Mostrar extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(227, 227, 227)
-                        .addComponent(btnmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
+                        .addComponent(btnmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
                         .addComponent(btnvolver)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -127,6 +127,6 @@ public class Mostrar extends javax.swing.JFrame {
     public javax.swing.JButton btnmostrar;
     public javax.swing.JButton btnvolver;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable tbProducto;
+    public javax.swing.JTable tbEmpleado;
     // End of variables declaration//GEN-END:variables
 }

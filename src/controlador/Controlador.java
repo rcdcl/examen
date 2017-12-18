@@ -35,17 +35,23 @@ public class Controlador implements ActionListener {
 
     //Metodo enumerar donde se agregan los botones o elementos que van a desencadenar acciones (que voy a escuchar)
     public enum Accion {
-        btnagregar,//boton agregar de vista
-        btnmodificar,// botón modificar de vista
-        btneliminar,// botón eliminar de vista
-        btnmostrar,// botón mostrar de vista
-        btnlimpiar,//botón limpiar de vista
-        btnsalir,// botón salir vista
-        btnbuscar,// botón buscar vista
+        btnagregar,//boton agregar de vista Empleado
+        btnmodificar,// botón modificar de vista Empleado
+        btneliminar,// botón eliminar de vista Empleado
+        btnsalir,// botón salir vista Empleado
+        btnbuscar,// botón buscar vista Empleado
         
-        //
+        btnmostrar,// botón mostrar de vista Mostrar  
+        btnvolver, // botón volver de vista Mostar
+        btnlimpiar,//botón limpiar de vista 
+                
+        // opciones barra menúmenú
+        msissalir, // opción salir barra menú
+        mempmostrar, // opción vista empleado barra menú
         
-        cbodescripcion// combo descripcion vista
+        // combos
+        cboestadocivil, // combo estado civil vista Empleado    
+        cbodepartamento, // combo selección departamento vista Empleado
     }
 
     //Agregamos el constructor de la clase
@@ -61,7 +67,7 @@ public class Controlador implements ActionListener {
         try {
             this.vistaEmpleado.setVisible(true);//Hago que la vista sea visible
             this.vistaEmpleado.setLocationRelativeTo(null);
-            this.vistaEmpleado.setTitle("VideoBuster");
+            this.vistaEmpleado.setTitle("Empleados");
 
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             //SwingUtilities.updateComponentTreeUI(vistaEmpleado);
@@ -82,9 +88,12 @@ public class Controlador implements ActionListener {
         this.vistaEmpleado.btneliminar.setActionCommand("btneliminar");
         this.vistaEmpleado.btneliminar.addActionListener(this);
         // Escuchamos el boton que muestra el dato
-        //this.vistaEmpleado.btnmostrar.setActionCommand("btnmostrar");
-        //this.vistaEmpleado.btnmostrar.addActionListener(this);
-
+        this.vistaMostrar.btnmostrar.setActionCommand("btnmostrar");
+        this.vistaMostrar.btnmostrar.addActionListener(this);
+        // Escuchamos el boton volver de vista Mostrar
+        this.vistaMostrar.btnvolver.setActionCommand("btnvolver");
+        this.vistaMostrar.btnvolver.addActionListener(this);
+       
         // Escuchamos el boton que limpia datos de pantalla
         //this.vistaEmpleado.btnlimpiar.setActionCommand("btnlimpiar");
         //this.vistaEmpleado.btnlimpiar.addActionListener(this);
@@ -98,13 +107,21 @@ public class Controlador implements ActionListener {
         // Escuchamos el bcombo descripción
         this.vistaEmpleado.cboestadocivil.setActionCommand("cbodescripcion");
         this.vistaEmpleado.cboestadocivil.addActionListener(this);
+        
+        // Escuchamos el opción salir barra menú
+        this.vistaEmpleado.msissalir.setActionCommand("msissalir");
+        this.vistaEmpleado.msissalir.addActionListener(this);
+        // Escuchamos opción mostar barra menú
+        this.vistaEmpleado.mempmostrar.setActionCommand("mempmostrar");
+        this.vistaEmpleado.mempmostrar.addActionListener(this);
+        
 
     }
     
     //limpia la tabla
     public void eliminar() {
-        DefaultTableModel tb = (DefaultTableModel) this.vistaMostrar.tbProducto.getModel();
-        int a = this.vistaMostrar.tbProducto.getRowCount() - 1;
+        DefaultTableModel tb = (DefaultTableModel) this.vistaMostrar.tbEmpleado.getModel();
+        int a = this.vistaMostrar.tbEmpleado.getRowCount() - 1;
         System.out.println(a);
         for (int i = a; i >= 0; i--) {
             tb.removeRow(tb.getRowCount() - 1);
@@ -197,7 +214,7 @@ public class Controlador implements ActionListener {
                 if (confirmacion == true) {
                     JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
                 }
-                this.vistaMostrar.tbProducto.setModel(this.modeloDato.mostrarDato());
+                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
                 break;
 
             case btnmodificar:
@@ -215,16 +232,15 @@ public class Controlador implements ActionListener {
                 }
 
                 System.out.println("btnmodificar");
-                this.vistaMostrar.tbProducto.setModel(this.modeloDato.mostrarDato());
+                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
                 break;
 
             case btnmostrar:
 
-                this.vistaMostrar.tbProducto.setModel(this.modeloDato.mostrarDato());
+                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
                 break;
 
             case btnsalir:
-            
                 System.exit(0);
                 break;
                 
@@ -232,7 +248,7 @@ public class Controlador implements ActionListener {
                 int codigoss = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
                 boolean bconfirmacion = false;
                 System.out.println("buscar");
-                this.vistaMostrar.tbProducto.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
+                this.vistaMostrar.tbEmpleado.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
                 if (bconfirmacion == true) {
                     JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
                 }
@@ -243,6 +259,22 @@ public class Controlador implements ActionListener {
                 eliminar();
                 limpiartodo();
                 break;
+                
+            case btnvolver:
+                this.vistaMostrar.setVisible(false);//Hago que la vista sea visible
+
+
+            case msissalir:
+                System.exit(0);
+                break;
+                
+            case mempmostrar:
+                this.vistaMostrar.setVisible(true);//Hago que la vista sea visible
+                this.vistaMostrar.setLocationRelativeTo(null);
+                this.vistaMostrar.setTitle("Mostras Datos Empleados");
+                
+                break;
+            
 
         }
 

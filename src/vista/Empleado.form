@@ -24,17 +24,10 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Empleados"/>
+            <Property name="text" type="java.lang.String" value="Reporte"/>
+            <Property name="actionCommand" type="java.lang.String" value="Reporte"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mempagregar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Empleado"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mempmostrar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar Registros de Empleados"/>

@@ -46,6 +46,7 @@ public class Controlador implements ActionListener {
         btneliminar,// botón eliminar de vista Empleado
         btnsalir,// botón salir vista Empleado
         btnbuscar,// botón buscar vista Empleado
+        btnmostrarredes, //botón mostrar empleados redes
         
         btnmostrar,// botón mostrar de vista Mostrar  
         btnvolver, // botón volver de vista Mostar
@@ -288,11 +289,6 @@ public class Controlador implements ActionListener {
 
                 //int verificacioncelular = Integer.parseInt(this.vistaEmpleado.txtcelular.getText());
 
-
-                
-                
-                
-                
                 if (verificacioncodigo < 1 || verificacioncodigo > 100) {
 
                     JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
@@ -314,10 +310,7 @@ public class Controlador implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Ingrese datos en campo Apellido, vuelva a intentar");
                         
                     }  else {
-                    
-                    
-                    
-                    
+
 
                     if (active == "Seleccione" || active2 == "Seleccione") {
                         JOptionPane.showMessageDialog(null, "Debe seleccionar Estado Civil y Departamento");
@@ -358,8 +351,8 @@ public class Controlador implements ActionListener {
                                 eliminar();
 
                             } else {
-                                JOptionPane.showMessageDialog(null, "No se pudo agregar");
-                            }
+                                JOptionPane.showMessageDialog(null, "No se pudo agregar. El código ya Existe");
+                            }limpiartodo();
                             }
                             }
                             }
@@ -414,10 +407,10 @@ public class Controlador implements ActionListener {
                 this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
                 break;
                 
-//            case btnmostrarredes:
-//
-//                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDatoRedes());
-//                break;
+            case btnmostrarredes:
+
+                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDatoRedes());
+                break;
 
             case btnsalir:
                 limpiartodo();

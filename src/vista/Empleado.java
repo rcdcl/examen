@@ -64,45 +64,45 @@ public class Empleado extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtcodigo.setText("0");
-        jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 100, -1));
-        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 220, -1));
+        jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 110, -1));
+        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 220, -1));
 
         txtprecio.setText("0");
-        jPanel1.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, -1));
+        jPanel1.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 110, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Código");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 60, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 60, -1));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 220, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 190, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Estado Civil");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 110, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 110, -1));
 
-        jLabel4.setText("Cecular");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jLabel4.setText("Celular");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, -1, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Departamento");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 130, 150, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 150, -1));
 
         btnagregar.setText(" Agregar Empleado");
         btnagregar.setToolTipText("");
-        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 190, -1));
+        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 210, 70));
 
         btneliminar.setText("Eliminar Empleado");
-        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 190, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 210, 70));
 
         btnmodificar.setText("Modificar Datos Empleado");
-        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 190, -1));
+        jPanel1.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 220, 70));
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Empleados");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 980, 40));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 210, 40));
 
         btnsalir.setText("Salir");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -110,33 +110,33 @@ public class Empleado extends javax.swing.JFrame {
                 btnsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
+        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 510, -1, -1));
 
         cbodepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Administración", "Bienestar", "Finanzas", "Informática", "Redes" }));
-        jPanel1.add(cbodepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 160, -1));
+        jPanel1.add(cbodepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 190, -1));
 
         btnbuscar.setText("Buscar Empleado");
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 180, -1));
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 220, 70));
 
         cboestadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Casado", "Soltero", "Viudo" }));
-        jPanel1.add(cboestadocivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 130, -1));
-        jPanel1.add(txtrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 100, -1));
+        jPanel1.add(cboestadocivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 130, -1));
+        jPanel1.add(txtrut, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 160, -1));
 
         jLabel5.setText("RUT");
         jLabel5.setToolTipText("");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
-        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 150, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 160, -1));
 
         jLabel6.setText("Apellido");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
-        jPanel1.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 120, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, -1, -1));
+        jPanel1.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 270, -1));
 
         jLabel8.setText("e-mail");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
-        jPanel1.add(txtsueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 130, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
+        jPanel1.add(txtsueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 190, 150, -1));
 
         jLabel10.setText("Sueldo Bruto");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, -1, -1));
 
         jMenu1.setText("Sistema");
 
@@ -178,14 +178,13 @@ public class Empleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnsalirActionPerformed
-
     private void msissalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msissalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_msissalirActionPerformed
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +211,7 @@ public class Empleado extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Empleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -246,7 +246,7 @@ public class Empleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public javax.swing.JMenuItem mempagregar;
     public javax.swing.JMenuItem mempmostrar;
-    private javax.swing.JMenuItem msissalir;
+    public javax.swing.JMenuItem msissalir;
     public javax.swing.JTextField txtapellido;
     public javax.swing.JTextField txtcodigo;
     public javax.swing.JTextField txtemail;

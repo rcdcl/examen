@@ -161,7 +161,11 @@ public class Modelo extends Conexion {
 
     //Modificar los datos de la BD
     public boolean modificarDato(int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto) {
+<<<<<<< HEAD
         String query = ;
+=======
+        String query = "update empleados set rut= '" + rut + "', nombre= '" + nombre + "', apellido= '" + apellido + "', celular= '" + celular + "', email= '" + email + "', sueldo_bruto= '" + sueldo_bruto + "', est_civil= '" + est_civil + "', nom_depto= '" + nom_depto + "' where codigo ='" + codigo + "'";
+>>>>>>> origin/master
 
         //se ejecuta update
         try {

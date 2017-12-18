@@ -100,6 +100,9 @@ public class Controlador implements ActionListener {
         // Escuchamos el boton que muestra el dato
         this.vistaMostrar.btnmostrar.setActionCommand("btnmostrar");
         this.vistaMostrar.btnmostrar.addActionListener(this);
+        // Escuchamos el boton que muestra el dato
+        this.vistaMostrar.btnmostrarredes.setActionCommand("btnmostrarredes");
+        this.vistaMostrar.btnmostrarredes.addActionListener(this);
         // Escuchamos el boton volver de vista Mostrar
         this.vistaMostrar.btnvolver.setActionCommand("btnvolver");
         this.vistaMostrar.btnvolver.addActionListener(this);
@@ -159,6 +162,87 @@ public class Controlador implements ActionListener {
         this.vistaEmpleado.btnagregar.setEnabled(true);
         eliminar();
 
+    }
+    
+    public void buscar(){
+        if (esNumero(this.vistaEmpleado.txtcodigo.getText()) == false) {
+                    JOptionPane.showMessageDialog(null, "Ingrese datos numéricos en Codigo, vuelva a intentar");
+                    
+
+                } else {
+
+                    int verificacioncodigo = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
+
+                    if (verificacioncodigo < 1 || verificacioncodigo > 100) {
+
+                        JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
+
+                    } else {
+
+                        int codigoss = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
+                        boolean bconfirmacion = false;
+                        System.out.println("buscar");
+                        
+                        this.vistaMostrar.tbEmpleado.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
+                        
+                        this.vistaEmpleado.txtrut.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 1)));
+                        this.vistaEmpleado.txtnombre.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 2)));
+                        this.vistaEmpleado.txtapellido.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 3)));
+                        this.vistaEmpleado.txtcelular.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 4)));
+                        this.vistaEmpleado.txtemail.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 5)));
+                        this.vistaEmpleado.txtsueldo.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 6)));
+                        
+                        String ecivil = String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 7));
+                        switch (ecivil){
+                            case "C":
+                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(1);
+                            break;    
+                            case "S":
+                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(2);
+                                break;
+                            case "V":
+                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(3);    
+                        break;
+                    }
+
+                        
+                        
+                        String departamento = String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 8));
+                        switch (departamento){
+                            case "Administración":
+                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(1);
+                            break;    
+                            case "Bienestar":
+                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(2);
+                                break;
+                            case "Finanzas":
+                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(3);    
+                        break;
+                        
+                            case "Informática":
+                               this.vistaEmpleado.cbodepartamento.setSelectedIndex(4);   
+                                break;
+                                
+                            case "Redes":
+                                this.vistaEmpleado.cbodepartamento.setSelectedIndex(5);  
+                                break;
+                    }
+                        
+                                    this.vistaEmpleado.btneliminar.setEnabled(true);
+                                    this.vistaEmpleado.btnmodificar.setEnabled(true);
+                                    this.vistaEmpleado.txtcodigo.setEnabled(false);
+                                    this.vistaEmpleado.btnagregar.setEnabled(false);
+                        
+                        
+                        if (bconfirmacion == true) {
+                            
+                            
+                            JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
+                        } else {
+                           // JOptionPane.showMessageDialog(null, "El código de empleado no existe, vuelva a intentarlo");
+                        }
+                    }
+                }
     }
     
     static boolean esNumero(String cadena){
@@ -270,7 +354,7 @@ public class Controlador implements ActionListener {
 
                                 JOptionPane.showMessageDialog(null, "El Empleado se agregó correctamente");
 
-                                //limpiartodo();
+                                limpiartodo();
                                 eliminar();
 
                             } else {
@@ -306,10 +390,12 @@ public class Controlador implements ActionListener {
                 break;
 
             case btnmodificar:
+                
+                
                 //lamamos método para modificar valores del producto menos el código
-                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaEmpleado.txtcelular.getText()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
+                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtrut.getText() ,this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.txtapellido.getText(), Integer.parseInt(this.vistaEmpleado.txtcelular.getText()), this.vistaEmpleado.txtemail.getText(), Integer.parseInt(this.vistaEmpleado.txtsueldo.getText()), ecivil, String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
 
-                    JOptionPane.showMessageDialog(null, "El Producto se modificó correctamente");
+                    JOptionPane.showMessageDialog(null, "El Empleado se modificó correctamente");
 
                     //Limpiamos
                     limpiartodo();
@@ -327,6 +413,11 @@ public class Controlador implements ActionListener {
 
                 this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
                 break;
+                
+//            case btnmostrarredes:
+//
+//                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDatoRedes());
+//                break;
 
             case btnsalir:
                 limpiartodo();
@@ -334,84 +425,7 @@ public class Controlador implements ActionListener {
                 
             case btnbuscar:
 
-                if (esNumero(this.vistaEmpleado.txtcodigo.getText()) == false) {
-                    JOptionPane.showMessageDialog(null, "Ingrese datos numéricos en Codigo, vuelva a intentar");
-                    break;
-
-                } else {
-
-                    int verificacioncodigo = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
-
-                    if (verificacioncodigo < 1 || verificacioncodigo > 100) {
-
-                        JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
-
-                    } else {
-
-                        int codigoss = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
-                        boolean bconfirmacion = false;
-                        System.out.println("buscar");
-                        
-                        this.vistaMostrar.tbEmpleado.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
-                        
-                        this.vistaEmpleado.txtrut.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 1)));
-                        this.vistaEmpleado.txtnombre.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 2)));
-                        this.vistaEmpleado.txtapellido.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 3)));
-                        this.vistaEmpleado.txtcelular.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 4)));
-                        this.vistaEmpleado.txtemail.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 5)));
-                        this.vistaEmpleado.txtsueldo.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 6)));
-                        
-                        String ecivil = String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 7));
-                        switch (ecivil){
-                            case "C":
-                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(1);
-                            break;    
-                            case "S":
-                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(2);
-                                break;
-                            case "V":
-                            this.vistaEmpleado.cboestadocivil.setSelectedIndex(3);    
-                        break;
-                    }
-
-                        
-                        
-                        String departamento = String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 8));
-                        switch (departamento){
-                            case "Administración":
-                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(1);
-                            break;    
-                            case "Bienestar":
-                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(2);
-                                break;
-                            case "Finanzas":
-                            this.vistaEmpleado.cbodepartamento.setSelectedIndex(3);    
-                        break;
-                        
-                            case "Informática":
-                               this.vistaEmpleado.cbodepartamento.setSelectedIndex(4);   
-                                break;
-                                
-                            case "Redes":
-                                this.vistaEmpleado.cbodepartamento.setSelectedIndex(5);  
-                                break;
-                    }
-                        
-                                    this.vistaEmpleado.btneliminar.setEnabled(true);
-                                    this.vistaEmpleado.btnmodificar.setEnabled(true);
-                                    this.vistaEmpleado.txtcodigo.setEnabled(false);
-                                    this.vistaEmpleado.btnagregar.setEnabled(false);
-                        
-                        
-                        if (bconfirmacion == true) {
-                            
-                            
-                            JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
-                        } else {
-                           // JOptionPane.showMessageDialog(null, "El código de empleado no existe, vuelva a intentarlo");
-                        }
-                    }
-                }
+                buscar();
                 
                 break;
                 

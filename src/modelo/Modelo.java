@@ -6,17 +6,17 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import sql.Conexion;
-import vista.Inicio;
+import vista.Empleado;
 
 public class Modelo extends Conexion {
 
-    Inicio vistaElProducto;
+    Empleado vistaEmpleado;
 
     public Modelo() {
     }
 
-    public Modelo(Inicio vistaElProducto) {
-        this.vistaElProducto = vistaElProducto;
+    public Modelo(Empleado vistaEmpleado) {
+        this.vistaEmpleado = vistaEmpleado;
     }
 
     //Agregar datos a la BD
@@ -89,7 +89,7 @@ public class Modelo extends Conexion {
     //Eliminar Dato de la BD 
     public boolean eliminarDato(int codigo) {
         // Se arma la consulta
-        Inicio ep = new Inicio();
+        Empleado ep = new Empleado();
         Object o = new Object();
 
         System.out.println("buscarDato()");

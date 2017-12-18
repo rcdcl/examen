@@ -110,7 +110,7 @@ public class Empleado extends javax.swing.JFrame {
                 btnsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
+        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
 
         cbodepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Administración", "Bienestar", "Finanzas", "Informática", "Redes" }));
         jPanel1.add(cbodepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 160, -1));

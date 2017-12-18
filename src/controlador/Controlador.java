@@ -15,7 +15,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import modelo.Modelo;
-import vista.Inicio;
+import vista.Empleado;
+import vista.Mostrar;
+
 
 /**
  *
@@ -24,7 +26,9 @@ import vista.Inicio;
 public class Controlador implements ActionListener {
 
     //Declarar vista
-    Inicio vistaElProducto;
+    Empleado vistaEmpleado;
+    Mostrar vistaMostrar = new Mostrar();
+    
 
     //Declaro el modelo
     Modelo modeloDato = new Modelo();
@@ -38,12 +42,15 @@ public class Controlador implements ActionListener {
         btnlimpiar,//botón limpiar de vista
         btnsalir,// botón salir vista
         btnbuscar,// botón buscar vista
+        
+        
+        
         cbodescripcion// combo descripcion vista
     }
 
     //Agregamos el constructor de la clase
-    public Controlador(Inicio vistaElProducto) {
-        this.vistaElProducto = vistaElProducto;
+    public Controlador(Empleado vistaEmpleado) {
+        this.vistaEmpleado = vistaEmpleado;
         //this.vistaElDato.setVisible(true);
 
     }
@@ -52,12 +59,12 @@ public class Controlador implements ActionListener {
     public void iniciar() {
 
         try {
-            this.vistaElProducto.setVisible(true);//Hago que la vista sea visible
-            this.vistaElProducto.setLocationRelativeTo(null);
-            this.vistaElProducto.setTitle("VideoBuster");
+            this.vistaEmpleado.setVisible(true);//Hago que la vista sea visible
+            this.vistaEmpleado.setLocationRelativeTo(null);
+            this.vistaEmpleado.setTitle("VideoBuster");
 
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            //SwingUtilities.updateComponentTreeUI(vistaElProducto);
+            //SwingUtilities.updateComponentTreeUI(vistaEmpleado);
         } catch (Exception ex) {
         }
 
@@ -66,52 +73,52 @@ public class Controlador implements ActionListener {
         //catch (InstantiationException ex) {}
         //catch (IllegalAccessException ex) {}
         // Escuchamos el boton que ingresa el dato
-        this.vistaElProducto.btnagregar.setActionCommand("btnagregar");
-        this.vistaElProducto.btnagregar.addActionListener(this);
+        this.vistaEmpleado.btnagregar.setActionCommand("btnagregar");
+        this.vistaEmpleado.btnagregar.addActionListener(this);
         // Escuchamos el boton que modifica el dato
-        this.vistaElProducto.btnmodificar.setActionCommand("btnmodificar");
-        this.vistaElProducto.btnmodificar.addActionListener(this);
+        this.vistaEmpleado.btnmodificar.setActionCommand("btnmodificar");
+        this.vistaEmpleado.btnmodificar.addActionListener(this);
         // Escuchamos el boton que elimina el dato
-        this.vistaElProducto.btneliminar.setActionCommand("btneliminar");
-        this.vistaElProducto.btneliminar.addActionListener(this);
+        this.vistaEmpleado.btneliminar.setActionCommand("btneliminar");
+        this.vistaEmpleado.btneliminar.addActionListener(this);
         // Escuchamos el boton que muestra el dato
-        this.vistaElProducto.btnmostrar.setActionCommand("btnmostrar");
-        this.vistaElProducto.btnmostrar.addActionListener(this);
+        //this.vistaEmpleado.btnmostrar.setActionCommand("btnmostrar");
+        //this.vistaEmpleado.btnmostrar.addActionListener(this);
 
         // Escuchamos el boton que limpia datos de pantalla
-        this.vistaElProducto.btnlimpiar.setActionCommand("btnlimpiar");
-        this.vistaElProducto.btnlimpiar.addActionListener(this);
+        //this.vistaEmpleado.btnlimpiar.setActionCommand("btnlimpiar");
+        //this.vistaEmpleado.btnlimpiar.addActionListener(this);
         
         // Escuchamos el boton que salir
-        this.vistaElProducto.btnsalir.setActionCommand("btnsalir");
-        this.vistaElProducto.btnsalir.addActionListener(this);
+        this.vistaEmpleado.btnsalir.setActionCommand("btnsalir");
+        this.vistaEmpleado.btnsalir.addActionListener(this);
         // Escuchamos el boton que buscar
-        this.vistaElProducto.btnbuscar.setActionCommand("btnbuscar");
-        this.vistaElProducto.btnbuscar.addActionListener(this);
+        this.vistaEmpleado.btnbuscar.setActionCommand("btnbuscar");
+        this.vistaEmpleado.btnbuscar.addActionListener(this);
         // Escuchamos el bcombo descripción
-        this.vistaElProducto.cboestadocivil.setActionCommand("cbodescripcion");
-        this.vistaElProducto.cboestadocivil.addActionListener(this);
+        this.vistaEmpleado.cboestadocivil.setActionCommand("cbodescripcion");
+        this.vistaEmpleado.cboestadocivil.addActionListener(this);
 
     }
-
+    
     //limpia la tabla
     public void eliminar() {
-        DefaultTableModel tb = (DefaultTableModel) this.vistaElProducto.tbProducto.getModel();
-        int a = this.vistaElProducto.tbProducto.getRowCount() - 1;
+        DefaultTableModel tb = (DefaultTableModel) this.vistaMostrar.tbProducto.getModel();
+        int a = this.vistaMostrar.tbProducto.getRowCount() - 1;
         System.out.println(a);
         for (int i = a; i >= 0; i--) {
             tb.removeRow(tb.getRowCount() - 1);
         }
 
     }
-
+    
     //limpia los datos de pantalla
     public void limpiartodo() {
-        this.vistaElProducto.txtnombre.setText("");
-        this.vistaElProducto.cboestadocivil.setSelectedIndex(0);
-        this.vistaElProducto.txtcodigo.setText("0");
-        this.vistaElProducto.txtprecio.setText("0");
-        this.vistaElProducto.cbodepartamento.setSelectedIndex(0);
+        this.vistaEmpleado.txtnombre.setText("");
+        this.vistaEmpleado.cboestadocivil.setSelectedIndex(0);
+        this.vistaEmpleado.txtcodigo.setText("0");
+        this.vistaEmpleado.txtprecio.setText("0");
+        this.vistaEmpleado.cbodepartamento.setSelectedIndex(0);
 
 
     }
@@ -128,8 +135,8 @@ public class Controlador implements ActionListener {
                 String active, active2;
 
 
-                active = String.valueOf(this.vistaElProducto.cbodepartamento.getSelectedItem());
-                active2 = String.valueOf(this.vistaElProducto.cboestadocivil.getSelectedItem());
+                active = String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem());
+                active2 = String.valueOf(this.vistaEmpleado.cboestadocivil.getSelectedItem());
                 
 
                 System.out.println(active);
@@ -137,9 +144,9 @@ public class Controlador implements ActionListener {
                  correcto2 = false;
                 
 
-                int verificacioncodigo = Integer.parseInt(this.vistaElProducto.txtcodigo.getText());
+                int verificacioncodigo = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
 
-                int verificacionprecio = Integer.parseInt(this.vistaElProducto.txtprecio.getText());
+                int verificacionprecio = Integer.parseInt(this.vistaEmpleado.txtprecio.getText());
 
 
 
@@ -162,7 +169,7 @@ public class Controlador implements ActionListener {
 
                             
                             
-                            if (this.modeloDato.agregarDatoProducto(Integer.parseInt(this.vistaElProducto.txtcodigo.getText()), this.vistaElProducto.txtnombre.getText(), this.vistaElProducto.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaElProducto.txtprecio.getText()), String.valueOf(this.vistaElProducto.cbodepartamento.getSelectedItem()))) {
+                            if (this.modeloDato.agregarDatoProducto(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaEmpleado.txtprecio.getText()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
 
                                 JOptionPane.showMessageDialog(null, "El Producto se agregó correctamente");
 
@@ -183,19 +190,19 @@ public class Controlador implements ActionListener {
 
             case btneliminar:
                 //llamamos método para eliminar dato
-                int codigos = Integer.parseInt(this.vistaElProducto.txtcodigo.getText());
+                int codigos = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
                 boolean confirmacion = false;
                 System.out.println("btneliminar");
                 confirmacion = this.modeloDato.eliminarDato(codigos);
                 if (confirmacion == true) {
                     JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
                 }
-                this.vistaElProducto.tbProducto.setModel(this.modeloDato.mostrarDato());
+                this.vistaMostrar.tbProducto.setModel(this.modeloDato.mostrarDato());
                 break;
 
             case btnmodificar:
                 //lamamos método para modificar valores del producto menos el código
-                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaElProducto.txtcodigo.getText()), this.vistaElProducto.txtnombre.getText(), this.vistaElProducto.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaElProducto.txtprecio.getText()), String.valueOf(this.vistaElProducto.cbodepartamento.getSelectedItem()))) {
+                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaEmpleado.txtprecio.getText()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
 
                     JOptionPane.showMessageDialog(null, "El Producto se modificó correctamente");
 
@@ -208,12 +215,12 @@ public class Controlador implements ActionListener {
                 }
 
                 System.out.println("btnmodificar");
-                this.vistaElProducto.tbProducto.setModel(this.modeloDato.mostrarDato());
+                this.vistaMostrar.tbProducto.setModel(this.modeloDato.mostrarDato());
                 break;
 
             case btnmostrar:
 
-                this.vistaElProducto.tbProducto.setModel(this.modeloDato.mostrarDato());
+                this.vistaMostrar.tbProducto.setModel(this.modeloDato.mostrarDato());
                 break;
 
             case btnsalir:
@@ -222,10 +229,10 @@ public class Controlador implements ActionListener {
                 break;
                 
             case btnbuscar:
-                int codigoss = Integer.parseInt(this.vistaElProducto.txtcodigo.getText());
+                int codigoss = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
                 boolean bconfirmacion = false;
                 System.out.println("buscar");
-                this.vistaElProducto.tbProducto.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
+                this.vistaMostrar.tbProducto.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
                 if (bconfirmacion == true) {
                     JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
                 }

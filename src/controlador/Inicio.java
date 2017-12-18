@@ -11,7 +11,7 @@ public class Inicio {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new Controlador(new vista.Inicio()).iniciar();
+        new Controlador(new vista.Empleado()).iniciar();
     }
 
 }

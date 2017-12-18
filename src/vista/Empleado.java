@@ -52,7 +52,6 @@ public class Empleado extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtsueldo = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        btnvolver = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         msissalir = new javax.swing.JMenuItem();
@@ -139,9 +138,6 @@ public class Empleado extends javax.swing.JFrame {
         jLabel10.setText("Sueldo Bruto");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, -1, -1));
 
-        btnvolver.setText("Volver");
-        jPanel1.add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 510, -1, -1));
-
         jMenu1.setText("Sistema");
 
         msissalir.setText("Salir");
@@ -182,14 +178,13 @@ public class Empleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnsalirActionPerformed
-
     private void msissalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msissalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_msissalirActionPerformed
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,8 +226,7 @@ public class Empleado extends javax.swing.JFrame {
     public javax.swing.JButton btnbuscar;
     public javax.swing.JButton btneliminar;
     public javax.swing.JButton btnmodificar;
-    public javax.swing.JButton btnsalir;
-    public javax.swing.JButton btnvolver;
+    private javax.swing.JButton btnsalir;
     public javax.swing.JComboBox<String> cbodepartamento;
     public javax.swing.JComboBox<String> cboestadocivil;
     private javax.swing.JLabel jLabel1;

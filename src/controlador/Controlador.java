@@ -201,6 +201,12 @@ public class Controlador implements ActionListener {
                         
                         this.vistaMostrar.tbEmpleado.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
                         
+                        if (String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 1))=="null"){
+                            JOptionPane.showMessageDialog(null, "El Código no existe, vuelva a intentar");
+                            limpiartodo();
+                            
+                        } else {
+                        
                         this.vistaEmpleado.txtrut.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 1)));
                         this.vistaEmpleado.txtnombre.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 2)));
                         this.vistaEmpleado.txtapellido.setText(String.valueOf(this.vistaMostrar.tbEmpleado.getValueAt(0, 3)));
@@ -257,7 +263,7 @@ public class Controlador implements ActionListener {
                         } else {
                            // JOptionPane.showMessageDialog(null, "El código de empleado no existe, vuelva a intentarlo");
                         }
-                    }
+                    }}
                 }
     }
     
@@ -406,6 +412,7 @@ public class Controlador implements ActionListener {
                     JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
                 }
                 this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
+                limpiartodo();
                 break;
 
             case btnmodificar:

@@ -76,10 +76,11 @@ public class Modelo extends Conexion {
 
                 i++;
             }
+            /*
             if (i == 0) {
                 JOptionPane.showMessageDialog(null, "El código no existe en la BD");
             }
-
+            */
             res.close();
             tablemodel.setDataVector(data, columNames);
             getConexion().close();

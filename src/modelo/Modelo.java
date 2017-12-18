@@ -62,15 +62,15 @@ public class Modelo extends Conexion {
             int i = 0;
             while (res.next()) {
 
-                data[0][0] = res.getString("codigo");
-                data[0][1] = res.getString("rut");
-                data[0][2] = res.getString("nombre");
-                data[0][3] = res.getString("apellido");
-                data[0][4] = res.getString("celular");
-                data[0][5] = res.getString("email");
-                data[0][6] = res.getString("sueldo_bruto");
-                data[0][7] = res.getString("est_civil");
-                data[0][8] = res.getString("nom_depto");
+                data[i][0] = res.getString("codigo");
+                data[i][1] = res.getString("rut");
+                data[i][2] = res.getString("nombre");
+                data[i][3] = res.getString("apellido");
+                data[i][4] = res.getString("celular");
+                data[i][5] = res.getString("email");
+                data[i][6] = res.getString("sueldo_bruto");
+                data[i][7] = res.getString("est_civil");
+                data[i][8] = res.getString("nom_depto");
 
                 i++;
             }
@@ -137,15 +137,15 @@ public class Modelo extends Conexion {
             int i = 0;
             while (res.next()) {
 
-                data[0][0] = res.getString("codigo");
-                data[0][1] = res.getString("rut");
-                data[0][2] = res.getString("nombre");
-                data[0][3] = res.getString("apellido");
-                data[0][4] = res.getString("celular");
-                data[0][5] = res.getString("email");
-                data[0][6] = res.getString("sueldo_bruto");
-                data[0][7] = res.getString("est_civil");
-                data[0][8] = res.getString("nom_depto");
+                data[i][0] = res.getString("codigo");
+                data[i][1] = res.getString("rut");
+                data[i][2] = res.getString("nombre");
+                data[i][3] = res.getString("apellido");
+                data[i][4] = res.getString("celular");
+                data[i][5] = res.getString("email");
+                data[i][6] = res.getString("sueldo_bruto");
+                data[i][7] = res.getString("est_civil");
+                data[i][8] = res.getString("nom_depto");
 
                 i++;
             }

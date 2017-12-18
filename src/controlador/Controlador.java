@@ -270,7 +270,7 @@ public class Controlador implements ActionListener {
 
                                 JOptionPane.showMessageDialog(null, "El Empleado se agregó correctamente");
 
-                                //limpiartodo();
+                                limpiartodo();
                                 eliminar();
 
                             } else {

@@ -134,7 +134,7 @@ public class Controlador implements ActionListener {
         this.vistaEmpleado.txtnombre.setText("");
         this.vistaEmpleado.cboestadocivil.setSelectedIndex(0);
         this.vistaEmpleado.txtcodigo.setText("0");
-        this.vistaEmpleado.txtprecio.setText("0");
+        this.vistaEmpleado.txtcelular.setText("0");
         this.vistaEmpleado.cbodepartamento.setSelectedIndex(0);
 
 
@@ -163,7 +163,7 @@ public class Controlador implements ActionListener {
 
                 int verificacioncodigo = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
 
-                int verificacionprecio = Integer.parseInt(this.vistaEmpleado.txtprecio.getText());
+                int verificacionprecio = Integer.parseInt(this.vistaEmpleado.txtcelular.getText());
 
 
 
@@ -185,8 +185,8 @@ public class Controlador implements ActionListener {
                         } else {
 
                             
-                            
-                            if (this.modeloDato.agregarDatoProducto(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaEmpleado.txtprecio.getText()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
+                                                                                    // int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto
+                            if (this.modeloDato.agregarEmpleado(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtrut.getText() ,this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.txtapellido.getText(), Integer.parseInt(this.vistaEmpleado.txtcelular.getText()), this.vistaEmpleado.txtemail.getText(), Integer.parseInt(this.vistaEmpleado.txtsueldo.getText()), String.valueOf(this.vistaEmpleado.cboestadocivil.getSelectedItem()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
 
                                 JOptionPane.showMessageDialog(null, "El Producto se agregó correctamente");
 
@@ -219,7 +219,7 @@ public class Controlador implements ActionListener {
 
             case btnmodificar:
                 //lamamos método para modificar valores del producto menos el código
-                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaEmpleado.txtprecio.getText()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
+                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.cboestadocivil.getSelectedIndex(), Integer.parseInt(this.vistaEmpleado.txtcelular.getText()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
 
                     JOptionPane.showMessageDialog(null, "El Producto se modificó correctamente");
 
@@ -262,6 +262,8 @@ public class Controlador implements ActionListener {
                 
             case btnvolver:
                 this.vistaMostrar.setVisible(false);//Hago que la vista sea visible
+
+                break;
 
 
             case msissalir:

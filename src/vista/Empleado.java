@@ -30,7 +30,7 @@ public class Empleado extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtcodigo = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
-        txtprecio = new javax.swing.JTextField();
+        txtcelular = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -66,8 +66,8 @@ public class Empleado extends javax.swing.JFrame {
         jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 110, -1));
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 220, -1));
 
-        txtprecio.setText("0");
-        jPanel1.add(txtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 110, -1));
+        txtcelular.setText("0");
+        jPanel1.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 110, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Código");
@@ -150,7 +150,6 @@ public class Empleado extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Reporte");
-        jMenu2.setActionCommand("Reporte");
 
         mempmostrar.setText("Mostrar Registros de Empleados");
         jMenu2.add(mempmostrar);
@@ -244,10 +243,10 @@ public class Empleado extends javax.swing.JFrame {
     public javax.swing.JMenuItem mempmostrar;
     public javax.swing.JMenuItem msissalir;
     public javax.swing.JTextField txtapellido;
+    public javax.swing.JTextField txtcelular;
     public javax.swing.JTextField txtcodigo;
     public javax.swing.JTextField txtemail;
     public javax.swing.JTextField txtnombre;
-    public javax.swing.JTextField txtprecio;
     public javax.swing.JTextField txtrut;
     public javax.swing.JTextField txtsueldo;
     // End of variables declaration//GEN-END:variables

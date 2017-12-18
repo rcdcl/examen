@@ -31,6 +31,7 @@ public class Mostrar extends javax.swing.JFrame {
         tbEmpleado = new javax.swing.JTable();
         btnmostrar = new javax.swing.JButton();
         btnvolver = new javax.swing.JButton();
+        btnmostrarredes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +54,13 @@ public class Mostrar extends javax.swing.JFrame {
 
         btnvolver.setText("Volver");
 
+        btnmostrarredes.setText("Mostrar Empleados Dpto. Redes");
+        btnmostrarredes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmostrarredesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -63,7 +71,9 @@ public class Mostrar extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(227, 227, 227)
+                        .addGap(127, 127, 127)
+                        .addComponent(btnmostrarredes, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(btnvolver)))
@@ -74,11 +84,12 @@ public class Mostrar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnvolver))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(btnvolver)
+                    .addComponent(btnmostrarredes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -87,6 +98,10 @@ public class Mostrar extends javax.swing.JFrame {
     private void btnmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmostrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnmostrarActionPerformed
+
+    private void btnmostrarredesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmostrarredesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnmostrarredesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,6 +140,7 @@ public class Mostrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnmostrar;
+    public javax.swing.JButton btnmostrarredes;
     public javax.swing.JButton btnvolver;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tbEmpleado;

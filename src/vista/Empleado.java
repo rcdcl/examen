@@ -99,13 +99,14 @@ public class Empleado extends javax.swing.JFrame {
         jLabel9.setText("Empleados");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 210, 40));
 
-        btnsalir.setText("Salir");
+        btnsalir.setText("Limpiar Casillas");
+        btnsalir.setActionCommand("Limpiar Casillas");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 510, -1, -1));
+        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, -1, -1));
 
         cbodepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Administración", "Bienestar", "Finanzas", "Informática", "Redes" }));
         jPanel1.add(cbodepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 190, -1));

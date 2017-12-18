@@ -32,6 +32,9 @@ public class Controlador implements ActionListener {
 
     //Declaro el modelo
     Modelo modeloDato = new Modelo();
+    
+    
+    String ecivil;
 
     //Metodo enumerar donde se agregan los botones o elementos que van a desencadenar acciones (que voy a escuchar)
     public enum Accion {
@@ -104,9 +107,12 @@ public class Controlador implements ActionListener {
         // Escuchamos el boton que buscar
         this.vistaEmpleado.btnbuscar.setActionCommand("btnbuscar");
         this.vistaEmpleado.btnbuscar.addActionListener(this);
-        // Escuchamos el bcombo descripción
-        this.vistaEmpleado.cboestadocivil.setActionCommand("cbodescripcion");
+        // Escuchamos el bcombo Estado Civil
+        this.vistaEmpleado.cboestadocivil.setActionCommand("cboestadocivil");
         this.vistaEmpleado.cboestadocivil.addActionListener(this);
+        // Escuchamos el bcombo departamento
+        this.vistaEmpleado.cbodepartamento.setActionCommand("cbodepartamento");
+        this.vistaEmpleado.cbodepartamento.addActionListener(this);
         
         // Escuchamos el opción salir barra menú
         this.vistaEmpleado.msissalir.setActionCommand("msissalir");
@@ -156,7 +162,7 @@ public class Controlador implements ActionListener {
                 active2 = String.valueOf(this.vistaEmpleado.cboestadocivil.getSelectedItem());
                 
 
-                System.out.println(active);
+                //System.out.println(active);
                 boolean correcto1 = false,
                  correcto2 = false;
                 
@@ -167,14 +173,14 @@ public class Controlador implements ActionListener {
 
 
 
-                if (verificacioncodigo < 10000 || verificacioncodigo > 99999) {
+                if (verificacioncodigo < 0 || verificacioncodigo > 101) {
 
-                    JOptionPane.showMessageDialog(null, "El código debe estar entre 10000 y 99999. Intente nuevamente");
+                    JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
 
                 } else {
 
                     if (active == "Seleccione" || active2 == "Seleccione") {
-                        JOptionPane.showMessageDialog(null, "Debe seleccionar Formato de pelicula y descripción");
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar Estado Civil y Departamento");
 
                         System.out.println(active);
 
@@ -186,11 +192,11 @@ public class Controlador implements ActionListener {
 
                             
                                                                                     // int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto
-                            if (this.modeloDato.agregarEmpleado(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtrut.getText() ,this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.txtapellido.getText(), Integer.parseInt(this.vistaEmpleado.txtcelular.getText()), this.vistaEmpleado.txtemail.getText(), Integer.parseInt(this.vistaEmpleado.txtsueldo.getText()), String.valueOf(this.vistaEmpleado.cboestadocivil.getSelectedItem()), String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
+                            if (this.modeloDato.agregarEmpleado(Integer.parseInt(this.vistaEmpleado.txtcodigo.getText()), this.vistaEmpleado.txtrut.getText() ,this.vistaEmpleado.txtnombre.getText(), this.vistaEmpleado.txtapellido.getText(), Integer.parseInt(this.vistaEmpleado.txtcelular.getText()), this.vistaEmpleado.txtemail.getText(), Integer.parseInt(this.vistaEmpleado.txtsueldo.getText()), ecivil, String.valueOf(this.vistaEmpleado.cbodepartamento.getSelectedItem()))) {
 
-                                JOptionPane.showMessageDialog(null, "El Producto se agregó correctamente");
+                                JOptionPane.showMessageDialog(null, "El Empleado se agregó correctamente");
 
-                                limpiartodo();
+                                //limpiartodo();
                                 eliminar();
 
                             } else {
@@ -200,7 +206,7 @@ public class Controlador implements ActionListener {
                     }
                 }
                 } catch (Exception ex){}
-
+                //limpiartodo();  
                 break;
 
 
@@ -276,7 +282,29 @@ public class Controlador implements ActionListener {
                 this.vistaMostrar.setTitle("Mostras Datos Empleados");
                 
                 break;
-            
+                
+            case cboestadocivil:
+                if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Seleccione") {
+                    JOptionPane.showMessageDialog(null, "Seleccione una opción de Estado Civil");
+                }
+                if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Casado") {
+                    ecivil = "C";
+                }
+                if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Soltero") {
+                    ecivil = "S";
+                }
+                if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Viudo") {
+                    ecivil = "V";
+                }
+
+                break;
+
+            case cbodepartamento:
+                if (this.vistaEmpleado.cbodepartamento.getSelectedItem() == "Seleccione") {
+                    JOptionPane.showMessageDialog(null, "Seleccione una opción de Departamento");
+                }
+                
+                break;
 
         }
 

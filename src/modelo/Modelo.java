@@ -132,7 +132,7 @@ public class Modelo extends Conexion {
         }
         Object[][] data = new String[registros][9];
         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sueldo_bruto, est_civil, nom_depto FROM empleados'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sueldo_bruto, est_civil, nom_depto FROM empleados");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {

@@ -33,6 +33,7 @@ public class Mostrar extends javax.swing.JFrame {
         btnvolver = new javax.swing.JButton();
         btnmostrarredes = new javax.swing.JButton();
         btnelims120 = new javax.swing.JButton();
+        btnaumentar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,8 @@ public class Mostrar extends javax.swing.JFrame {
 
         btnelims120.setText("Eliminar Empleados Sueldos 120000");
 
+        btnaumentar.setText("Aumentar todos los sueldos en 10%");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +85,9 @@ public class Mostrar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(217, 217, 217)
-                                .addComponent(btnelims120))
+                                .addComponent(btnelims120)
+                                .addGap(144, 144, 144)
+                                .addComponent(btnaumentar))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -90,7 +95,9 @@ public class Mostrar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnelims120)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnelims120)
+                    .addComponent(btnaumentar))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
@@ -148,6 +155,7 @@ public class Mostrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnaumentar;
     public javax.swing.JButton btnelims120;
     public javax.swing.JButton btnmostrar;
     public javax.swing.JButton btnmostrarredes;

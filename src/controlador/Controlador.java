@@ -54,7 +54,8 @@ public class Controlador implements ActionListener {
         
 
         btnelims120, // boton eliminar sueldos de 120.000.-
-                
+        btnaumentar, // boton aumentar 10% los sueldos
+        
         // opciones barra menúmenú
         msissalir, // opción salir barra menú
         mempmostrar, // opción vista empleado barra menú
@@ -115,7 +116,10 @@ public class Controlador implements ActionListener {
         // Escuchamos el boton elimiar sueldos 120000 de vista Mostrar
         this.vistaMostrar.btnelims120.setActionCommand("btnelims120");
         this.vistaMostrar.btnelims120.addActionListener(this);
-        
+
+        // Escuchamos el boton umenta sueldos en 10% de vista Mostrar
+        this.vistaMostrar.btnaumentar.setActionCommand("btnaumentar");
+        this.vistaMostrar.btnaumentar.addActionListener(this);        
         
         
         
@@ -494,6 +498,20 @@ public class Controlador implements ActionListener {
                 }
                 
                 break;
+                
+            case btnaumentar:
+                boolean aumentar= this.modeloDato.aumentaSueldo();
+                
+                if (aumentar == true){
+                    JOptionPane.showMessageDialog(null, "Se aumentaron todos los sueldos en 10%");
+                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo aumentar los sueldos");
+                }
+                limpiartodo();
+                this.vistaMostrar.tbEmpleado.setModel(this.modeloDato.mostrarDato());
+                break;
+                
 
         }
 

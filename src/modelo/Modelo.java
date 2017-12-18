@@ -249,7 +249,7 @@ try {
 
         
         try{
-            PreparedStatement pstm = this.getConexion().prepareStatement("DELETE from empleados where sueldo_bruto = 120000;");//Stock Vaso Chico
+            PreparedStatement pstm = this.getConexion().prepareStatement("DELETE from empleados where sueldo_bruto = 120000;");
             int r = pstm.executeUpdate();
             pstm.close();
 
@@ -261,6 +261,25 @@ try {
         return true;
 
     }
+    
+       public boolean aumentaSueldo() {
+
+        
+        try{
+            PreparedStatement pstm = this.getConexion().prepareStatement("UPDATE empleados SET sueldo_bruto = sueldo_bruto*1.10;");
+            int r = pstm.executeUpdate();
+            pstm.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            return false;
+        }
+
+        return true;
+
+    }
+    
+    
 
     //Modificar los datos de la BD
 }

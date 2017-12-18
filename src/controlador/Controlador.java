@@ -448,6 +448,7 @@ public class Controlador implements ActionListener {
                 
             case btnvolver:
                 this.vistaMostrar.setVisible(false);//Hago que la vista sea visible
+                limpiartodo();
 
                 break;
 

@@ -450,14 +450,7 @@ public class Controlador implements ActionListener {
                 }
 
                 break;
-                /*
-            case cbodepartamento:
-                if (this.vistaEmpleado.cbodepartamento.getSelectedItem() == "Seleccione") {
-                    JOptionPane.showMessageDialog(null, "Seleccione una opción de Departamento");
-                }
-                
-                break;
-               */ 
+
         }
 
     }

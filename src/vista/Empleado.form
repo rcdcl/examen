@@ -83,9 +83,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtcodigo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -106,9 +103,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txtcelular">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

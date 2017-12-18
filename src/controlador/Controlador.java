@@ -139,12 +139,22 @@ public class Controlador implements ActionListener {
     public void limpiartodo() {
         this.vistaEmpleado.txtnombre.setText("");
         this.vistaEmpleado.cboestadocivil.setSelectedIndex(0);
-        this.vistaEmpleado.txtcodigo.setText("0");
-        this.vistaEmpleado.txtcelular.setText("0");
+        this.vistaEmpleado.txtcodigo.setText("");
+        this.vistaEmpleado.txtcelular.setText("");
         this.vistaEmpleado.cbodepartamento.setSelectedIndex(0);
 
 
     }
+    
+    static boolean esNumero(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+        }
+    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -166,18 +176,47 @@ public class Controlador implements ActionListener {
                 boolean correcto1 = false,
                  correcto2 = false;
                 
-
+                if (esNumero(this.vistaEmpleado.txtcodigo.getText())==false){
+                    JOptionPane.showMessageDialog(null, "Ingrese datos numéricos en Codigo, vuelva a intentar");
+                    break;
+                    
+                }else {
+                
+                
                 int verificacioncodigo = Integer.parseInt(this.vistaEmpleado.txtcodigo.getText());
 
-                int verificacionprecio = Integer.parseInt(this.vistaEmpleado.txtcelular.getText());
+                //int verificacioncelular = Integer.parseInt(this.vistaEmpleado.txtcelular.getText());
 
 
-
-                if (verificacioncodigo < 0 || verificacioncodigo > 101) {
+                
+                
+                
+                
+                if (verificacioncodigo < 1 || verificacioncodigo > 101) {
 
                     JOptionPane.showMessageDialog(null, "El código debe ser > a 0 y <= 100. Intente nuevamente");
 
                 } else {
+                    //verificar rut no está en blanco
+                    
+                    if (this.vistaEmpleado.txtrut.getText().length()== 0){
+                        JOptionPane.showMessageDialog(null, "Ingrese valor en campo RUT, vuelva a intentar");
+                        
+                    } else {
+                        
+                        if (this.vistaEmpleado.txtnombre.getText().length()== 0){
+                        JOptionPane.showMessageDialog(null, "Ingrese valor en campo Nombre, vuelva a intentar");
+                        
+                    } else {
+                        
+                        if (this.vistaEmpleado.txtapellido.getText().length()== 0){
+                        JOptionPane.showMessageDialog(null, "Ingrese datos en campo Apellido, vuelva a intentar");
+                        
+                    }  else {
+                    
+                    
+                    
+                    
 
                     if (active == "Seleccione" || active2 == "Seleccione") {
                         JOptionPane.showMessageDialog(null, "Debe seleccionar Estado Civil y Departamento");
@@ -185,10 +224,28 @@ public class Controlador implements ActionListener {
                         System.out.println(active);
 
                     } else {
-
-                        if (verificacionprecio <= 0) {
-                            JOptionPane.showMessageDialog(null, "El precio debe ser mayor que 0");
+                        
+                        if (esNumero(this.vistaEmpleado.txtcelular.getText())==false){
+                            
+                            JOptionPane.showMessageDialog(null, "Ingrese numeros en el campo Celular, vuelva a intentarlo");
                         } else {
+
+                        if (this.vistaEmpleado.txtcelular.getText().length() < 9 || this.vistaEmpleado.txtcelular.getText().length() > 9) {
+                            JOptionPane.showMessageDialog(null, "El numero de celular debe tener 9 digitos, vuelva a intentar");
+                        } else {
+                            
+                            if (esNumero(this.vistaEmpleado.txtsueldo.getText())==false){
+                                
+                                JOptionPane.showMessageDialog(null, "Debe ingresar monto de Sueldo Bruto, vuelva a intentar");
+                            } else {
+                                
+                                if (Integer.parseInt(this.vistaEmpleado.txtsueldo.getText())<120000){
+                                    JOptionPane.showMessageDialog(null, "El sueldo bruto debe ser mayor o igual a 120000, vuelva a intentar");
+                                } else {
+                                
+                                if (this.vistaEmpleado.txtemail.getText().length() == 0){
+                                    JOptionPane.showMessageDialog(null, "Ingrese datos en campo Email, vuelva a intentar");
+                                } else {
 
                             
                                                                                     // int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto
@@ -202,10 +259,18 @@ public class Controlador implements ActionListener {
                             } else {
                                 JOptionPane.showMessageDialog(null, "No se pudo agregar");
                             }
+                            }
+                            }
+                            }
                         }
                     }
+                    }
+                    }
+                    }
+                    }
                 }
-                } catch (Exception ex){}
+                }
+                }catch (Exception ex){}
                 //limpiartodo();  
                 break;
 

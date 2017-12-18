@@ -61,12 +61,8 @@ public class Empleado extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtcodigo.setText("0");
         jPanel1.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 110, -1));
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 220, -1));
-
-        txtcelular.setText("0");
         jPanel1.add(txtcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, 110, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

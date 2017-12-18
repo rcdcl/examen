@@ -158,6 +158,49 @@ public class Modelo extends Conexion {
         return tablemodel;
 
     }
+    
+    //Mostrar Empleados Departamento de Redes
+        public DefaultTableModel mostrarDatoRedes() {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"Codigo", "rut", "Nombre", "Apellido", "Celular", "Email", "Sueldo Bruto", "Estado Civil", "Nombre Departamento"};
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from empleados");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        Object[][] data = new String[registros][9];
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT codigo, rut, nombre, apellido, celular, email, sueldo_bruto, est_civil, nom_depto FROM empleados where nom_depto = 'Redes'");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+
+                data[i][0] = res.getString("codigo");
+                data[i][1] = res.getString("rut");
+                data[i][2] = res.getString("nombre");
+                data[i][3] = res.getString("apellido");
+                data[i][4] = res.getString("celular");
+                data[i][5] = res.getString("email");
+                data[i][6] = res.getString("sueldo_bruto");
+                data[i][7] = res.getString("est_civil");
+                data[i][8] = res.getString("nom_depto");
+
+                i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+            getConexion().close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+
+    }
 
     //Modificar los datos de la BD
     public boolean modificarDato(int codigo, String rut, String nombre, String apellido, int celular, String email, int sueldo_bruto, String est_civil, String nom_depto){

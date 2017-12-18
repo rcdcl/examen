@@ -77,6 +77,8 @@ public class Controlador implements ActionListener {
             this.vistaEmpleado.btneliminar.setEnabled(false);
             this.vistaEmpleado.btnmodificar.setEnabled(false);
 
+
+
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             //SwingUtilities.updateComponentTreeUI(vistaEmpleado);
         } catch (Exception ex) {
@@ -434,11 +436,9 @@ public class Controlador implements ActionListener {
                 this.vistaMostrar.setTitle("Mostras Datos Empleados");
                 
                 break;
-             /*   
+               
             case cboestadocivil:
-                if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Seleccione") {
-                    JOptionPane.showMessageDialog(null, "Seleccione una opción de Estado Civil");
-                }
+ 
                 if (this.vistaEmpleado.cboestadocivil.getSelectedItem() == "Casado") {
                     ecivil = "C";
                 }
@@ -450,14 +450,14 @@ public class Controlador implements ActionListener {
                 }
 
                 break;
-
+                /*
             case cbodepartamento:
                 if (this.vistaEmpleado.cbodepartamento.getSelectedItem() == "Seleccione") {
                     JOptionPane.showMessageDialog(null, "Seleccione una opción de Departamento");
                 }
                 
                 break;
-                */
+               */ 
         }
 
     }
